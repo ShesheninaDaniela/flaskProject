@@ -22,7 +22,8 @@ pipeline {
         stage("clean container and image") {
             steps {
 
-              sh 'python flaskProject/clean.py'
+              sh 'docker rm -f `docker ps -a | grep \'test_calculate\' | awk \'{print $1;}\'`'
+              sh 'docker rmi `docker images | grep \'test_calculate\' | awk \'{ print $3; }\'`'
             }
         }
 
