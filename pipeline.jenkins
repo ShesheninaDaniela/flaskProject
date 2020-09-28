@@ -21,8 +21,8 @@ pipeline {
         }
        stage("clean docker") {
             steps {
-                sh 'docker rm -f $(docker ps -a | grep "test_calculator" | awk '/ / { print $1 }')'
-                sh 'docker rmi $(docker images | grep "test_calculator" | awk '/ / { print $3 }')'
+               sh 'docker ps -f name=test_calculator -q | xargs --no-run-if-empty docker container stop'
+               sh 'docker container ls -a -f name=test_calculator -q | xargs -r docker container rm'
 
             }
         }
