@@ -19,7 +19,7 @@ pipeline {
 
             }
         }
-       stage("clone git project to local folder") {
+       stage("clean docker") {
             steps {
                 sh 'docker rm -f $(docker ps -a | grep "test_calculator" | awk '/ / { print $1 }')'
                 sh 'docker rmi $(docker images | grep "test_calculator" | awk '/ / { print $3 }')'
