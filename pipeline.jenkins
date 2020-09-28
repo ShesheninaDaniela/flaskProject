@@ -22,7 +22,7 @@ pipeline {
         stage("clean container and image") {
             steps {
 
-              sh 'docker rmi -f test_calculator'
+
               sh 'docker rmi  test_calculator'
             }
         }
