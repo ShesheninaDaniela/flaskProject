@@ -19,13 +19,6 @@ pipeline {
 
             }
         }
-        stage("clean container and image") {
-            steps {
-
-
-
-            }
-        }
 
         stage("build docker image and run docker container") {
             steps {
