@@ -22,15 +22,15 @@ pipeline {
         stage("clean container and image") {
             steps {
 
-              sh 'docker rm -f `docker ps -a | grep \'test_calculate\' | awk \'{print $1;}\'`'
-              sh 'docker rmi `docker images | grep \'test_calculate\' | awk \'{ print $3; }\'`'
+              sh 'docker rmi -f test_calculator'
+              sh 'docker rmi  test_calculator
             }
         }
 
         stage("build docker image and run docker container") {
             steps {
 
-                sh 'docker build -t test_calculate . '
+                sh 'docker build -t test_calculate flaskProject/ '
                 sh 'docker run  -d -p 5000:5000 test_calculate'
             }
         }
