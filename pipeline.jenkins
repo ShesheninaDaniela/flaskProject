@@ -23,6 +23,7 @@ pipeline {
             steps {
                sh 'docker ps -f name=test_calculator -q | xargs --no-run-if-empty docker container stop'
                sh 'docker container ls -a -f name=test_calculator -q | xargs -r docker container rm'
+               sh 'docker rmi -f test_calculator'
 
             }
         }
