@@ -23,8 +23,8 @@ pipeline {
         stage("build docker image and run docker container") {
             steps {
 
-                sh 'docker build -t test_calculate flaskProject/ '
-                sh 'docker run  -d -p 5000:5000 test_calculate'
+                sh 'docker build -t test_calculator flaskProject/ '
+                sh 'docker run  --name test_calculator -d -p 5000:5000 test_calculator'
             }
         }
     }
