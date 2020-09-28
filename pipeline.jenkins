@@ -1,0 +1,37 @@
+properties([disableConcurrentBuilds()])
+
+pipeline {
+    agent {
+    label 'master'
+    }
+    options {
+    timestamps()
+    }
+    stages {
+        stage("clean folder for project and create new one") {
+            steps {
+                sh 'rm -rf flaskProject'
+            }
+        }
+       stage("clone git project to local folder") {
+            steps {
+                sh 'git clone https://github.com/ShesheninaDaniela/flaskProject'
+
+            }
+        }
+        stage("clean container and image") {
+            steps {
+
+              sh 'python flaskProject/clean.py'
+            }
+        }
+
+        stage("build docker image and run docker container") {
+            steps {
+
+                sh 'docker build -t test_calculate . '
+                sh 'docker run  -d -p 5000:5000 test_calculate'
+            }
+        }
+    }
+}

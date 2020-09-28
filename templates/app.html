@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculator</title>
+
+       <style>
+        .row{ padding:15px;text-align: center}
+        .form-group{padding:15px;text-align: center}
+        .form-control{padding:6px;text-align: center}
+         body { background-color: #f5fffa}
+
+       </style>
+	</head>
+
+	<body>
+       <div class="row">
+			<div class="col-md-4"></div>
+            <div class="col-md-4"><h1>CALCULATOR</h1></div></div>
+            <div class="col-md-4"></div>
+
+           <div class="row">
+             <div class="col-md-4"></div>
+             <div class="col-md-4">
+
+				<form class="form-horizontal" method="post">
+
+					<div class="form-group" >
+						<label class="control-label col-xs-3" for="num1">NUMBER 1 :
+							<input type="number" class="form-control" name="num1">
+                        </label>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label col-xs-3" for="num1">NUMBER 2 :
+                            <input type="number" class="form-control" name="num2" >
+                        </label>
+					</div>
+
+					<div class="form-group">
+                      <label class="control-label col-xs-3">OPERATION:
+                			<select class="form-control" name="operation">
+                            <option>Addition</option>
+                    		<option>Subtraction</option>
+                    		<option>Multiplication</option>
+                    		<option>Division</option>
+                			</select>
+                      </label>
+                    </div>
+
+                    <div class="form-group">
+                         <button style="background: #66CC66; width: 80px; height: 40px;  position: relative;
+                         ">Result
+                         </button>
+					</div>
+
+                    <div class="form-group">
+                            <label class="control-label col-xs-3" for="num1">RESULT :
+							<input type="number" name="result" class="form-control" placeholder={{ entry }}></label>
+                    </div>
+                </form>
+
+             </div>
+          </div>
+      </body>
+</html>
